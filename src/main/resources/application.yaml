@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: hodgepdge
+  webflux:
+    multipart:
+      max-in-memory-size: 200
+  servlet:
+    multipart:
+      max-request-size: 20
+      max-file-size: 20
+  datasource:
+    type: com.mysql.cj.jdbc.MysqlConnectionPoolDataSource
+    url: jdbc:mysql://39.107.193.244:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 271828@Root
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+app:
+  storage-dir: FileLoaderStorage
+  webui-url: http://39.107.193.244:8000
+

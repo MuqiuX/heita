@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>hhhhhhhh</h1>
+
+<div id="app" style="width:500px;height:500px;background-color: rgba(121,102,102,0.22);" title="55555555">
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const http = axios.create({
+        baseURL: 'http://localhost:8080',
+        timeout: 100000,
+        onDownloadProgress: function (progressEvent) {
+            document.getElementById('app').innerHTML = progressEvent.event.currentTarget.responseText + "<br/>";
+        },
+    });
+
+    http({
+        method: 'get',
+        url: '/flux',
+        responseType: 'stream'
+    })
+        .then(function (response) {
+            console.log(response);
+        });
+</script>
+
+</body>
+</html>
